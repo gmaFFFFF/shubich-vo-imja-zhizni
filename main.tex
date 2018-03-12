@@ -1,0 +1,51 @@
+﻿\include{preamble}
+
+%--- Начало тела книги
+\begin{document}
+\Russian
+
+% Настройки PDF
+\hypersetup{
+pdftitle={Во имя жизни (Шубич М.П.)}
+,pdfauthor={Михаил Павлович Шубич}
+,pdfsubject={Автобиографическая повесть Шубича М.П.}
+,pdfkeywords={Шубич, автобиография, ГУЗ, МИИЗ}
+,unicode={true}
+}
+
+\frontmatter														% Стартовые страницы (с римской нумерацией и ненумерованными главами)
+
+\pagenumbering{Roman}										% Нумеровать начальные главы ПРОПИСНЫМИ латинскими цифрами
+
+\include{_Title+Annotation}
+
+
+\include{_License}
+\include{_Content}
+\include{_Intro}
+
+\mainmatter															% Основные страницы (с арабской нумерацией и нумерованными главами)
+\include{1Chapter}
+\include{2Chapter}
+\include{3Chapter}
+\include{4Chapter} 
+\include{5Chapter}
+\include{6Chapter}
+\include{7Chapter}
+
+
+\appendix 															% Приложения
+%\begin{appendices}
+\chapter{Приложения}
+\include{AppendixPhoto}
+\include{AppendixBiograf}
+\include{AppendixBiblio}
+\include{AppendixReward}
+%\end{appendices}
+
+
+\backmatter															% Завершающие страницы (с ненумерованными главами).
+\include{zOutputData}
+
+\end{document}
+%--- Конец тела книги
