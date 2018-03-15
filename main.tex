@@ -8,7 +8,7 @@
 \hypersetup{
 pdftitle={Во имя жизни (Шубич М.П.)}
 ,pdfauthor={Михаил Павлович Шубич}
-,pdfsubject={Автобиографическая повесть М.П. Шубича }
+,pdfsubject={Автобиографическая повесть М.П. Шубича}
 ,pdfkeywords={Шубич, автобиография, ГУЗ, МИИЗ}
 ,unicode={true}
 }
@@ -17,6 +17,7 @@ pdftitle={Во имя жизни (Шубич М.П.)}
 
 \pagenumbering{Roman}										% Нумеровать начальные главы ПРОПИСНЫМИ латинскими цифрами
 
+\newpage															% Пустая страница
 \include{_Title+Annotation}
 
 
@@ -36,16 +37,19 @@ pdftitle={Во имя жизни (Шубич М.П.)}
 
 \appendix 															% Приложения
 %\begin{appendices}
-\chapter{Приложения}
+\chapter{Дополнительные материалы}
+\include{AppendixStudents}
 \include{AppendixPhoto}
 \include{AppendixBiograf}
 \include{AppendixBiblio}
 \include{AppendixReward}
 %\end{appendices}
 
-
 \backmatter															% Завершающие страницы (с ненумерованными главами).
 \include{zOutputData}
+
+% Добавляет заметки к документу
+\todos
 
 \end{document}
 %--- Конец тела книги
