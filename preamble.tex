@@ -1,11 +1,22 @@
-﻿\documentclass[book
-,a5paper
-,10pt
-,russian																%	Заказывает русский стиль оформления заголовков, загружает пакет многоязыковой поддержки Babel с опцией russian, включает \frenchspacing (без дополнительных отбивок после конца предложения) и переопределяет команды \alph, \Alph на алфавитную нумерацию кириллицей (нумерация латиницей сохраняется в командах \alphlatin, \Alphlatin)
-,openright															%	Новая глава начинается с нечетной страницы
-,cyremdash															% Длинное тире будет несколько короче (что соответствует российским полиграфическим традициям)
+﻿%\documentclass[book
+%,a5paper
+%,10pt
+%,russian																%	Заказывает русский стиль оформления заголовков, загружает пакет многоязыковой поддержки Babel с опцией russian, включает \frenchspacing (без дополнительных отбивок после конца предложения) и переопределяет команды \alph, \Alph на алфавитную нумерацию кириллицей (нумерация латиницей сохраняется в командах \alphlatin, \Alphlatin)
+%,openright															%	Новая глава начинается с нечетной страницы
+%,cyremdash															% Длинное тире будет несколько короче (что соответствует российским полиграфическим традициям)
 %,draft																	%	Режим черновика, отображает ошибки
-]{ncc}
+%]{ncc}
+%
+\documentclass[a5paper
+,DIV=calc
+,10pt																			% Размер шрифта
+,twoside																	% Двусторонняя печать
+%,BCOR=5mm																% Доп. отступ у корешка
+%,draft																		% Режим черновика, отображает ошибки
+,chapterprefix=true												% Добавляет слово Глава к подписи \chapter
+,appendixprefix=true											% Добавляет слово Приложение к подписи \chapter в разделе приложений
+]
+{scrbook}
 
 
 %--- Руссификация
@@ -16,16 +27,17 @@
 \usepackage[utf8]{inputenc}							% Кодировка исходников книги
 
 %При использовании класса ncc использовать babel не нужно
-%\usepackage[english,russian]{babel}		% Локализация и переносы
+\usepackage[english,russian]{babel}		% Локализация и переносы
 
 %--- Настройки оформления
 \usepackage {indentfirst}								% Отступ и красная строка у первого параграфа
 \usepackage{paratype}										% Шрифты paratype ПТ Санс и ПТ Сериф
 
-\usepackage[headings]{ncchdr}						% Горизонтальная линия в колонтитле
+%
+%\usepackage[headings]{ncchdr}						% Горизонтальная линия в колонтитле
 
-
-\ChapterPrefixStyle{header,toc}					% Добавление префикса “Глава”: header - в колонтитуле; toc - в оглавлении
+%Не работает в srcbook
+%\ChapterPrefixStyle{header,toc}					% Добавление префикса “Глава”: header - в колонтитуле; toc - в оглавлении
 
 %--- Типографика
 \usepackage{microtype}									% Висячая пунктуация
@@ -35,9 +47,6 @@
 \newcount\afterconjunctionpenalty
 \afterconjunctionpenalty=1000						% Величина для контроля желательности неразрывного пробела
 \newunicodechar{˚}{\penalty\afterconjunctionpenalty\ }
-
-% Задать коду символа U+2009 (Thin Space, тонкий пробел) значение неразбиваемый нерастяжимый узкий пробел (\,) или неразбиваемый растяжимый узкий пробел (\=,)
-\newunicodechar{ }{\=,}
 
 
 
@@ -55,6 +64,9 @@
 
 % Символ градуса
 \usepackage{textcomp}
+
+% Тире и дефисы
+%\usepackage[cyremdash]{extdash}
 
 % Использование minipage
 \usepackage{float}			
@@ -78,22 +90,30 @@
 ,hidelinks															% Скрывает выделение ссылок
 ,hypertexnames={true}										% Если false, то hyperref будет вместо счётчиков LaTeX использовать свои и ссылки в предметном указателе будут работать неврно.
 ,plainpages={false}											% Если true, то счётчик страниц будет в формате arabic и не будет учитывать римскую нумерацию страниц, но hypertexnames должно быть равно true
-,bookmarksnumbered={true}								% Добавить префикс <<Глава №>>
+,bookmarksnumbered={true}								% Добавить префикс «Глава №»
 ,pdfpagelabels
 ]{hyperref}
 
 
 
 %--- Настраиваемые переносы
-\hyphenation{in-ter-na-tion-al
-рас-про-стра-ня-ет-ся
+\hyphenation{рас-про-стра-ня-ет-ся
 двух-мет-ров-ка
 ЦГКА
 цфас-ман
 нег-лас-ная}
 
 % Борьба с ошибками appendix, заложенными в пакет ncc
-\makeatletter
-\let \@Asbuk\russian@Alph
-\let \@asbuk\russian@alph
-\makeatother
+%\makeatletter
+%\let \@Asbuk\russian@Alph
+%\let \@asbuk\russian@alph
+%\makeatother
+
+%--- Настройка scrbook
+\setcapindent{0em}											% Отступы второй и следующей строки в подписях
+\setlength{\parindent}{1.5em}					% Красная строка
+\deffootnote[														% Настройка отображения сносок
+1.5em]																	% Отсутп самой сноски
+{0em}																		% Отступ вторых строк абзаца
+{1.5em}																	% Отступ следующего абзаца
+{\textsuperscript{\thefootnotemark}}
