@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1062
-NormalPos.bottom=614
+NormalPos.right=1653
+NormalPos.bottom=641
 Class=LaTeXView
-Document=insert.tex
+Document=AppendixBiblio.tex
 
 [Frame0_View0,0]
-TopLine=51
-Cursor=10664
+TopLine=0
+Cursor=2813
 
 [Frame1]
 Flags=0
@@ -29,34 +29,16 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1062
-NormalPos.bottom=614
+NormalPos.right=1653
+NormalPos.bottom=641
 Class=LaTeXView
-Document=5Chapter.tex
+Document=insert.tex
 
 [Frame1_View0,0]
-TopLine=165
-Cursor=24004
-
-[Frame2]
-Flags=0
-ShowCmd=1
-MinPos.x=-1
-MinPos.y=-1
-MaxPos.x=-1
-MaxPos.y=-1
-NormalPos.left=4
-NormalPos.top=26
-NormalPos.right=1062
-NormalPos.bottom=614
-Class=LaTeXView
-Document=6Chapter.tex
-
-[Frame2_View0,0]
-TopLine=138
-Cursor=21366
+TopLine=135
+Cursor=0
 
 [SessionInfo]
-FrameCount=3
-ActiveFrame=2
+FrameCount=2
+ActiveFrame=0
 
