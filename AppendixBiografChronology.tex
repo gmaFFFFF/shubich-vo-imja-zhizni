@@ -1,0 +1,170 @@
+﻿%В этом файле содержится неудачная попытка использовать пакет chronosys
+%Оставлен для сохранения руссокй документации на пакет chronosys
+
+%Добавить в преамбулу 
+\usepackage{chronosys}
+% Настройка написания месяцев по-русски
+\catcode`\@=11
+\def\chron@selectmonth#1{\ifcase#1\or января\or февраля\or марта\or апреля\or мая\or июня\or июля\or августа\or сентября\or октября\or ноября\or декабря\fi}
+
+%Добавить в документ
+\startchronology
+[startyear=1935        % Начальный год на шкале времени
+,stopyear=1960         % Конечный год на шкале времени
+,dateselevation=10pt   % Высота смещения начального и конечного года на временной шкале
+,color=orange!100           % Цвет линии времени
+,height=.5pc           % Толщина линии времени
+%,width=\hsize         % Длина линии времени
+%,align=left         % Выравнивание временной шкалы на странице:  right, center, left 
+%,arrow=false          % Флаг отображения стрелки на конце
+%,arrowheight=10pt       % Толщина начала стрелки
+%,arrowwidth=.1\hsize   % Длина стрелки
+%,arrowcolor=red!100      % Цвет стрелки
+,dates=false          % Флаг отображения начального и конечного года
+%,startdate=false      % Флаг отображения начального года
+%,stopdate=false       % Флаг отображения конечного года
+%,datesstyle=\normalfont\bfseries       % Стиль отображения начального и конечного года, например: %\normalfont\itshape ли \normalfont\bfseries
+%,box=true
+]
+
+% Автоматическая разметка периодов
+\chronograduation[event]  % Стиль отображения periode или event. Период - закрашенный интервал, событие %- палочки на кале времени.
+[date=false]        % Настройки отображения аналогичны настройкам chronoperiode и chronoevent
+{5}                         % Шаг разметки
+
+% Настройка меняющихся цветов периодов
+\chronoperiodecoloralternation{blue, red, cyan, purple, yellow,green,violet, purple, cyan,orange}
+% Начать заново смену цветов
+%\restartchronoperiodecolor[violet]     % violet - цвет с которого начать ротацию цветов
+
+\chronoevent[barre=false    % Размещать засечку события на линии времени
+%,mark=false                 % Размещать засечку события ниже линии времени
+%,date=false                 % Размещать дату события
+%,year=false                 % Подписывать год события
+%,icon=АА                    % Добавить иконку события: последовательность команд или текст
+%,iconheight=1em            % Вертикальное смещение иконки события
+%,conversionmonth=false      % Преобразовать номер месяца в его название
+%,datesseparation=.          % Символ-разделитель элементов даты
+%,markdepth=2em              % Длина засечки под линией времени и смещение подписи
+,textstyle=\small    % Стиль подписи, например: \normalfont\itshape или \normalfont\bfseries 
+,datesstyle=\small           % Стиль отображения даты БЕЗ символа разделителя, например: %\normalfont\itshape или normalfont\bfseries
+,datestyle=\footnotesize           % Стиль отображения даты С символом разделителем, например: %\normalfont\itshape или normalfont\bfseries
+%,ifcolorbox=false       % Флаг который говорит о необходимости отрисовки фона подписи
+%,colorbox=red!100        % Фон подписи 
+%,textwidth=1em             % Ширина подписи
+]{01/10/1936}{День рождения}
+
+\chronoperiode
+[%dateselevation=5pt   % Вертикальное смещение начального и конечного года на временной шкале
+%,dates=false          % Флаг отображения начального и конечного года
+%,startdate=false      % Флаг отображения начального года
+%,stopdate=false       % Флаг отображения конечного года
+,datesstyle=\footnotesize           % Стиль отображения начального и конечного года, например: %\normalfont\itshape или normalfont\bfseries
+,textstyle=\centering\small    % Стиль подписи, например: \normalfont\itshape или \normalfont\bfseries 
+%,bottomdepth=.5pc       % Вертикальное смещение всего периода (заливка+надпись) снизу
+,textdepth=-2.5em         % Вертикальное смещение подписи периода
+%,ifcolorbox=false       % Флаг который говорит о необходимости отрисовки фона подписи
+%,colorbox=red!100        % Фон подписи 
+%,topheight=.3pc          % Толщина периода времени
+%,color=blue           % Цвет периода (по умолчанию  blue, red, cyan, purple and yellow)
+,textwidth=6em             % Ширина подписи
+]{1941}{1945}{Великая отечественная война}
+
+\chronoperiode
+[%dateselevation=5pt   % Вертикальное смещение начального и конечного года на временной шкале
+%,dates=false          % Флаг отображения начального и конечного года
+,startdate=false      % Флаг отображения начального года
+,stopdate=false       % Флаг отображения конечного года
+,datesstyle=\footnotesize           % Стиль отображения начального и конечного года, например: %\normalfont\itshape или normalfont\bfseries
+,textstyle=\centering\small    % Стиль подписи, например: \normalfont\itshape или \normalfont\bfseries 
+%,bottomdepth=.5pc       % Вертикальное смещение всего периода (заливка+надпись) снизу
+%,textdepth=-2.5em         % Вертикальное смещение подписи периода
+%,ifcolorbox=false       % Флаг который говорит о необходимости отрисовки фона подписи
+%,colorbox=red!100        % Фон подписи 
+%,topheight=.3pc          % Толщина периода времени
+%,color=blue           % Цвет периода (по умолчанию  blue, red, cyan, purple and yellow)
+,textwidth=6em             % Ширина подписи
+]{1945}{1949}{Начальная школа}
+
+\chronoperiode
+[%dateselevation=5pt   % Вертикальное смещение начального и конечного года на временной шкале
+%,dates=false          % Флаг отображения начального и конечного года
+%,startdate=false      % Флаг отображения начального года
+%,stopdate=false       % Флаг отображения конечного года
+,datesstyle=\footnotesize           % Стиль отображения начального и конечного года, например: %\normalfont\itshape или normalfont\bfseries
+,textstyle=\centering\small    % Стиль подписи, например: \normalfont\itshape или \normalfont\bfseries 
+%,bottomdepth=.5pc       % Вертикальное смещение всего периода (заливка+надпись) снизу
+,textdepth=-2.5em         % Вертикальное смещение подписи периода
+%,ifcolorbox=false       % Флаг который говорит о необходимости отрисовки фона подписи
+%,colorbox=red!100        % Фон подписи 
+%,topheight=.3pc          % Толщина периода времени
+%,color=blue           % Цвет периода (по умолчанию  blue, red, cyan, purple and yellow)
+,textwidth=6em             % Ширина подписи
+]{1949}{1951}{Семилетняя школа}
+
+\chronoperiode
+[%dateselevation=5pt   % Вертикальное смещение начального и конечного года на временной шкале
+,dates=false          % Флаг отображения начального и конечного года
+,startdate=false      % Флаг отображения начального года
+,stopdate=false       % Флаг отображения конечного года
+,datesstyle=\footnotesize           % Стиль отображения начального и конечного года, например: %\normalfont\itshape или normalfont\bfseries
+,textstyle=\centering\small    % Стиль подписи, например: \normalfont\itshape или \normalfont\bfseries 
+%,bottomdepth=.5pc       % Вертикальное смещение всего периода (заливка+надпись) снизу
+%,textdepth=-2.5em         % Вертикальное смещение подписи периода
+%,ifcolorbox=false       % Флаг который говорит о необходимости отрисовки фона подписи
+%,colorbox=red!100        % Фон подписи 
+%,topheight=.3pc          % Толщина периода времени
+%,color=blue           % Цвет периода (по умолчанию  blue, red, cyan, purple and yellow)
+,textwidth=6em             % Ширина подписи
+]{1951}{1954}{Средняя школа}
+
+\chronoperiode
+[%dateselevation=5pt   % Вертикальное смещение начального и конечного года на временной шкале
+%,dates=false          % Флаг отображения начального и конечного года
+,startdate=false      % Флаг отображения начального года
+%,stopdate=false       % Флаг отображения конечного года
+,datesstyle=\footnotesize           % Стиль отображения начального и конечного года, например: %\normalfont\itshape или normalfont\bfseries
+,textstyle=\centering\small    % Стиль подписи, например: \normalfont\itshape или \normalfont\bfseries 
+%,bottomdepth=.5pc       % Вертикальное смещение всего периода (заливка+надпись) снизу
+,textdepth=-3.5em         % Вертикальное смещение подписи периода
+%,ifcolorbox=false       % Флаг который говорит о необходимости отрисовки фона подписи
+%,colorbox=red!100        % Фон подписи 
+%,topheight=.3pc          % Толщина периода времени
+%,color=blue           % Цвет периода (по умолчанию  blue, red, cyan, purple and yellow)
+,textwidth=6em             % Ширина подписи
+]{1954}{1955}{Диспетчер-кладовщик}
+
+\chronoperiode
+[%dateselevation=5pt   % Вертикальное смещение начального и конечного года на временной шкале
+,dates=false          % Флаг отображения начального и конечного года
+,startdate=false      % Флаг отображения начального года
+,stopdate=false       % Флаг отображения конечного года
+,datesstyle=\footnotesize           % Стиль отображения начального и конечного года, например: %\normalfont\itshape или normalfont\bfseries
+,textstyle=\centering\small    % Стиль подписи, например: \normalfont\itshape или \normalfont\bfseries 
+%,bottomdepth=.5pc       % Вертикальное смещение всего периода (заливка+надпись) снизу
+%,textdepth=-2.5em         % Вертикальное смещение подписи периода
+%,ifcolorbox=false       % Флаг который говорит о необходимости отрисовки фона подписи
+%,colorbox=red!100        % Фон подписи 
+%,topheight=.3pc          % Толщина периода времени
+%,color=blue           % Цвет периода (по умолчанию  blue, red, cyan, purple and yellow)
+,textwidth=6em             % Ширина подписи
+]{1955}{1958}{Армия}
+
+
+\chronoperiode
+[%dateselevation=5pt   % Вертикальное смещение начального и конечного года на временной шкале
+%,dates=false          % Флаг отображения начального и конечного года
+%,startdate=false      % Флаг отображения начального года
+%,stopdate=false       % Флаг отображения конечного года
+,datesstyle=\footnotesize           % Стиль отображения начального и конечного года, например: %\normalfont\itshape или normalfont\bfseries
+,textstyle=\centering\small    % Стиль подписи, например: \normalfont\itshape или \normalfont\bfseries 
+%,bottomdepth=.5pc       % Вертикальное смещение всего периода (заливка+надпись) снизу
+,textdepth=-1.5em         % Вертикальное смещение подписи периода
+%,ifcolorbox=false       % Флаг который говорит о необходимости отрисовки фона подписи
+%,colorbox=red!100        % Фон подписи 
+%,topheight=.3pc          % Толщина периода времени
+%,color=blue           % Цвет периода (по умолчанию  blue, red, cyan, purple and yellow)
+,textwidth=6em             % Ширина подписи
+]{1958}{1959}{Рабочий-бригадир}
+
+\stopchronology

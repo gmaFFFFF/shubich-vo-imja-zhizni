@@ -40,7 +40,7 @@
 %\ChapterPrefixStyle{header,toc}					% Добавление префикса “Глава”: header - в колонтитуле; toc - в оглавлении
 
 %--- Типографика
-\usepackage{microtype}									% Висячая пунктуация
+%\usepackage{microtype}									% Висячая пунктуация
 
 % Эмулировать 'желательно' неразрывные пробелы. Подробности тут https://habrahabr.ru/post/339110/. Суть идеи: не следует все предлоги переносить на другую строчку. Некоторые можно оставить.
 \usepackage{newunicodechar}
@@ -61,6 +61,12 @@
 % Вставка изображений
 \usepackage{graphicx}
 \graphicspath{{pictures/}}							% Путь по умолчанию для изображений
+
+% Выравнивание рисунков внутри figure. Добавляет ключевые слова выравнивание к \includegraphics
+\usepackage[export]{adjustbox}
+
+% Продвинутые таблицы
+\usepackage{tabularx}
 
 % Символ градуса
 \usepackage{textcomp}
