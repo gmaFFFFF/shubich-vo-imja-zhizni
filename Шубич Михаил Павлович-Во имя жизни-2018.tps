@@ -18,7 +18,7 @@ Document=AppendixBiblio.tex
 
 [Frame0_View0,0]
 TopLine=0
-Cursor=2813
+Cursor=3281
 
 [Frame1]
 Flags=0
@@ -35,10 +35,31 @@ Class=LaTeXView
 Document=insert.tex
 
 [Frame1_View0,0]
-TopLine=135
-Cursor=0
+TopLine=0
+Cursor=31915
+
+[Frame2]
+Flags=0
+ShowCmd=1
+MinPos.x=-1
+MinPos.y=-1
+MaxPos.x=-1
+MaxPos.y=-1
+NormalPos.left=4
+NormalPos.top=26
+NormalPos.right=1653
+NormalPos.bottom=641
+Class=LaTeXView
+Document=AppendixBiograf.tex
+
+[Frame2_View0,0]
+TopLine=51
+Cursor=2706
 
 [SessionInfo]
-FrameCount=2
-ActiveFrame=0
+FrameCount=3
+ActiveFrame=2
+
+[Bookmarks]
+AppendixBiograf.tex=73 
 
