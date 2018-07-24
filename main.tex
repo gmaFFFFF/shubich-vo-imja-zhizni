@@ -1,10 +1,10 @@
-﻿\include{preamble}
+﻿\include{services/preamble}
 
 %--- Начало тела книги
 \begin{document}
 \Russian
 
-% Настройки PDF
+%--- Настройки PDF
 \hypersetup{
 pdftitle={Во имя жизни (Шубич М.П.)}
 ,pdfauthor={Михаил Павлович Шубич}
@@ -13,19 +13,21 @@ pdftitle={Во имя жизни (Шубич М.П.)}
 ,unicode={true}
 }
 
-\frontmatter														% Стартовые страницы (с римской нумерацией и ненумерованными главами)
-
+%--- Стартовые страницы (с римской нумерацией и ненумерованными главами)
+\frontmatter														
 \pagenumbering{Roman}										% Нумеровать начальные главы ПРОПИСНЫМИ латинскими цифрами
 
-\include{_Title+Annotation}
-
-
+\include{_Title}
 \include{_License}
 \include{_Content}
 \include{_thank}
 \include{_Intro}
 
-\mainmatter															% Основные страницы (с арабской нумерацией и нумерованными главами)
+
+%--- Основные страницы (с арабской нумерацией и нумерованными главами)
+\label{myEndRomanPage}
+\mainmatter
+															
 \include{1Chapter}
 \include{2Chapter}
 \include{3Chapter}
@@ -35,21 +37,26 @@ pdftitle={Во имя жизни (Шубич М.П.)}
 \include{7Chapter}
 \include{insert}
 
-\appendix 															% Приложения
-%\begin{appendices}
+
+%--- Приложения
+\appendix 															
 \chapter{Дополнительные материалы}
 \include{AppendixStudents}
 \include{AppendixPhoto}
 \include{AppendixBiograf}
 \include{AppendixBiblio}
 \include{AppendixReward}
-%\end{appendices}
+\include{AppendixVerse}
 
-\backmatter															% Завершающие страницы (с ненумерованными главами).
-\include{zOutputData}
+
+%--- Завершающие страницы (с ненумерованными главами).
+\backmatter	
 
 % Добавляет заметки к документу
+\chapter{Редакционные заметки}
 \todos
+											
+\include{zOutputData}
 
 \end{document}
 %--- Конец тела книги

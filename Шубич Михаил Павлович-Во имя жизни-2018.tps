@@ -6,6 +6,3 @@ Version=2
 FrameCount=0
 ActiveFrame=-1
 
-[Bookmarks]
-AppendixBiograf.tex=73 
-

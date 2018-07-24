@@ -1,0 +1,134 @@
+﻿% Пользовательские переменные
+\newcommand{\AuthorFam}{Шубич}
+\newcommand{\AuthorName}{Михаил Павлович}
+\newcommand{\AuthorIO}{М.\,П.}
+\newcommand{\Title}{Во имя жизни}
+\newcommand{\Subject}{Автобиографическая повесть}	
+\newcommand{\YearPub}{2018}
+\newcommand{\CityPub}{Москва}
+\newcommand{\Publishers}{Самиздат\todo[Орг]{Надо исправить издательство}}
+\newcommand{\UDK}{82\==94}
+\newcommand{\BBK}{84}
+\newcommand{\AuthorMark}{Ш 95}
+\newcommand{\ISBN}{978\==5\==11111\==111\==1}
+
+%!!!! Не забудь временно включить пакет auto-pst-pdf чтобы воссоздать штрих-код
+\newcommand{\ISBNbar}{978-5-11111-111}	% ISBN для создания штрих кода. Последнее число можно не вводить. Оно будет вычислено автоматически. Причина вывода в отдельную переменную - команда для построения штрих кода требует использовать в качестве разделителя дефис '-', а не короткое тире '–' или '\=='
+
+
+\newcommand{\Author}{\AuthorName\ \AuthorFam}
+\newcommand{\AuthorAbbrA}{\AuthorIO~\AuthorFam}
+\newcommand{\AuthorAbbrB}{\AuthorFam~\AuthorIO}
+
+\newcommand{\BibInfo}{\Title~: \MakeLowercase{\Subject}~/ \AuthorAbbrA. ~— М.~:~\Publishers, \YearPub.~— \pageref{myEndRomanPage}, \pageref{myLastPage}~с.~: ил.~— ISBN~\ISBN.}
+
+% Настройки шрифтов
+\setkomafont{publishers}{\normalfont}
+\setkomafont{publishers}{\normalfont\large}
+\setkomafont{date}{\normalfont\large}
+\setkomafont{subject}{\normalfont\itshape}
+
+% Пользовательский блок
+\newcommand{\bibInd}[3]{%
+		\pbox[t]{\linewidth}{УДК \\ББК }
+		\pbox[t]{\linewidth}{%
+		 #1\\				% УДК
+		 #2\\				% ББК
+		 #3}}				% авторский знак
+
+%-- Титульный лист средствами Koma Script
+% Шмуцтитул - страница, размещённая перед титульным листом для защиты последнего от грязи и порчи
+%\extratitle{\vspace*{4\baselineskip}
+%\begin{center}
+%\textbf{\huge\AuthorAbbr\\[3ex]\Title}
+%\end{center}}
+
+% Основной титульный лист
+%\titlehead{Колонтитул}									% Колонитутл титульного листа
+\subject{\Subject}											% Тема книги
+\title{\Title}													% Название книги
+%\subtitle{Подзаголовок}								% Подзагаловок
+\author{\Author}												% Автор1  \and Автор2  \and Автор 3...
+\date{\YearPub}													% Дата издания
+\publishers{\CityPub\\\Publishers}			% Издательство
+%\thanks																% \thanks - создаст сноску, но должен использоваться в любом из вышеуказанных элементов
+
+% Оборот титульного листа
+%\uppertitleback{Аннотация}										%	Верх оборота титульной страницы
+%\lowertitleback{Создано в {\KOMAScript} and {\LaTeX}}			% Низ оборота титульной страницы
+
+% Посвящение
+%\dedication{Посвящается ....\\с любовью}			% Кому книга посвящается
+												
+%\maketitle																			% Создать титульный лист
+
+%-- Пользовательский титульный лист
+
+\begin{titlepage}
+% Титул
+	\begin{center}
+		\usekomafont{author}{\Author}
+		\null\vfill
+		\resizebox{\linewidth}{!}{\usekomafont{title}{\Huge\Title}}	% Масштабировать текст до ширины страницы
+		\vskip 1em
+		\usekomafont{subject}{\Subject}		
+		\vfill
+		\usekomafont{publishers}{\CityPub}
+		\vskip .5em
+		\usekomafont{publishers}{\Publishers}
+		\vskip .5em
+		\usekomafont{date}{\YearPub}
+	\end{center}
+	
+% Оборот титула
+	\clearpage
+	\thispagestyle{empty}		
+	% Библиографический индекс сверху			
+	\noindent
+	\bibInd{\UDK}{\BBK}{\AuthorMark}
+	
+	\vfill
+	\noindent
+	\hspace{1em}\hphantom{\AuthorMark}
+	\begin{minipage}[t]{\linewidth-1em-\widthof{\AuthorMark}}
+		% Сведения о серии и т.д.
+		\small Разработка оформления обложки ??????
+	\end{minipage}
+	
+	\vfill
+	% Библиографическое описание
+	\noindent
+	\hspace{1em}\hphantom{\AuthorMark}
+	{\bfseries\AuthorAbbrB}
+	
+	\noindent
+	\AuthorMark\hspace{1em}
+	\begin{minipage}[t]{\linewidth-1em-\widthof{\AuthorMark}}
+		{\hspace{1.5em}\BibInfo}	
+	\end{minipage}
+	
+	\vfill
+	\noindent
+	\hspace{1em}\hphantom{\AuthorMark}
+	\begin{minipage}[t]{\linewidth-1em-\widthof{\AuthorMark}}
+		% Издательская аннотация
+		\small	[Аннотация] \todo[Текст]{Надо придумать рекламную аннотацию}
+	\end{minipage}	
+	
+	\noindent	
+	\begin{flushright}
+		\bibInd{\UDK}{\BBK}{}	
+	\end{flushright}
+	
+	% ISBN и авторские права
+	\vfill
+	\noindent
+	\parbox[b]{.4\linewidth}{\small\bfseries ISBN \ISBN}
+	\hfill
+	\parbox[b]{.5\linewidth}
+	{\raggedright\small
+	 ©\,\AuthorAbbrA, \YearPub\\
+	 ©\,Иллюстрации. Права на˚иллюстрации принадлежат их˚авторам	
+	}
+	
+\end{titlepage}

@@ -1,0 +1,93 @@
+﻿\documentclass[a5paper
+,DIV=calc
+,10pt																			% Размер шрифта
+,twoside																	% Двусторонняя печать
+,BCOR=3mm																	% Доп. отступ у корешка
+%,draft																		% Режим черновика, отображает ошибки
+,chapterprefix=true												% Добавляет слово Глава к подписи \chapter
+,appendixprefix=true											% Добавляет слово Приложение к подписи \chapter в разделе приложений
+]
+{scrbook}
+
+
+%--- Руссификация
+\input glyphtounicode.tex 							% Копирование символов в pdf (должен стоять до fontenc)
+\pdfgentounicode=1											% ----//----
+
+\usepackage[T2A]{fontenc}								% Внутренняя кодировка
+\usepackage[utf8]{inputenc}							% Кодировка исходников книги
+
+\usepackage[english,russian]{babel}			% Локализация и переносы
+
+
+%--- Настройки оформления
+\setlength{\parindent}{1.5em}						% Красная строка
+
+\usepackage {indentfirst}								% Отступ и красная строка у первого параграфа
+
+\usepackage{paratype}										% Шрифты paratype ПТ Санс и ПТ Сериф
+
+\input{services/scrbook_settings}				% Настройки отображения для пакета Koma Script scrbook
+
+
+%--- Типографика
+\usepackage{microtype}									% Висячая пунктуация
+
+\input{services/spaces_desirable}				% Желательно неразрывные пробелы. Обозначаются символом ˚
+
+
+%--- Дополнительные пакеты
+\usepackage[shortcuts]{extdash}					% Дополнительные возможности для работы с тире и переносами 
+
+\usepackage{graphicx}										% Вставка изображений
+\graphicspath{{pictures/}}							% Путь по умолчанию для изображений
+
+\usepackage[export]{adjustbox}					% Выравнивание рисунков внутри figure. Добавляет ключевые слова выравнивание к \includegraphics
+
+\usepackage{tabularx}										% Продвинутые таблицы
+
+\usepackage{textcomp}										% Символ градуса
+	
+\usepackage{float}											% Пользовательские плавающие объекты. Я использую параметр [H], который  всунет плавающий объект именно там, где он встречается в tex-файле
+
+\usepackage[section]{placeins}					% Барьеры для плавающих объектов
+
+\usepackage{wrapfig}										% Обтекание текстом
+
+\usepackage{todo}												% Заметки ToDo
+
+\usepackage{caption}										% Настройка подписей плавающих объектов
+
+\usepackage{calc}												% Арифметические операции с длинами
+
+\usepackage{pbox}												% Расширенные операции с parabox
+
+\usepackage{pst-barcode}		% Генерация штрих-кода
+
+\usepackage[crop=off
+%,off																		% После завершени компиляци штрих кода c помощью опции off необходимо отключить этот пакет
+]{auto-pst-pdf}													%	Поддержка postScript в PDF + надо добавить опцию компилятора pdflatex --shell-escape
+
+%--- Стихи
+\usepackage{verse}											
+\renewcommand{\poemtoc}{subsection}			% Уровень на котором стихотворение будет отражено в оглавлении
+\renewcommand{\poemtitlefont}{\normalfont\itshape\large\centering}	% Шрифт для названия стихотворения
+\newcommand{\attrib}[1]{\nopagebreak{\raggedleft\footnotesize\itshape #1\par}}	% Добавить в стихотворение информацию об авторе
+
+%--- Гиперсылки в тексте (Лучше добавлять самым последним)
+\usepackage[unicode
+,pdfdisplaydoctitle={true}							% Отображать в заголовке окна AdobeReader название документа, а не имя файла
+,pdflang={ru-RU}												% Язык документа
+,hidelinks															% Скрывает выделение ссылок
+,hypertexnames={true}										% Если false, то hyperref будет вместо счётчиков LaTeX использовать свои и ссылки в предметном указателе будут работать неверно.
+,plainpages={false}											% Если true, то счётчик страниц будет в формате arabic и не будет учитывать римскую нумерацию страниц, но hypertexnames должно быть равно true
+,bookmarksnumbered={true}								% Добавить префикс «Глава №»
+,pdfpagelabels
+]{hyperref}
+
+
+%--- Пользовательские переносы
+\input{services/hyphenation}
+
+%--- Пользовательские команды
+\input{services/user_cmd}

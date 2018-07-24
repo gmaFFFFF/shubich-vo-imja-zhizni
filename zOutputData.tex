@@ -1,7 +1,56 @@
-﻿%\author{\large ШУБИЧ Михаил Павлович}
-%\title{\LARGE\bf Во имя жизни}
-%\lastpageinfo{{\footnotesize Оформлено в системе MiK\TeX(\LaTeXe), макрос \NCC\par}\qef Редактор …}
-%{Выходные данные
-%\\Гарнитура ПТ Санс, ПТ Сериф}
-%{Издатель}
-%\makelastpage
+﻿\clearpage
+
+\thispagestyle{empty}
+\noindent\begin{center}
+	{\itshape Литературно-художественное издание\par}
+\end{center}	
+
+\vfill\noindent
+\begin{center}
+	{\large{\bfseries\MakeUppercase{\AuthorFam}} \AuthorName\\[3ex]}				
+	{\LARGE\Title}
+\end{center}
+
+\vfill\noindent
+\begin{center}
+	Оформлено в системе MiK\TeX(\LaTeXe), макрос \KOMAScript\\[1ex]
+	Исходный код для сборки книги размещён в˚сети Интернет по˚адресу: \url{https://github.com/gmaFFFFF/shubich-vo-imja-zhizni}.
+\end{center}
+	
+\vfill\noindent
+\begin{center}
+	\small 
+	{\itshape Корректор} ?????\\[1ex]
+	{\itshape Компьютерная вёрстка} М.\,А.~Гришкин\\[1ex]
+	{\itshape Набор текста} М.\,Л.~Гришкина\\[1ex]
+\end{center}
+
+\vfill\noindent
+\rule{\textwidth}{.5pt}
+\begin{center}
+	\small Подписано в печать  ??.??.2018. Формат 60х84/16. Усл. печ. л. 6,63. Тираж 10 экз. Заказ 100. Гарнитура ПТ~Санс, ПТ~Сериф.		
+\end{center}
+\rule{\textwidth}{.5pt}
+
+\vfil\noindent		
+\begin{center}
+		\small
+		
+		Юридическое имя издателя и его адрес.\\[1ex]
+				
+		Юридическое имя полиграфического предприятия и его адрес.
+\end{center}
+
+\vfil
+\noindent\begin{center}
+	\begin{pspicture}(-15pt,-5pt)(1.7in,.85in)
+		\psbarcode{\ISBNbar}{includetext width=1.5 height=.7 textfont=PTSans}{isbn}
+	\end{pspicture}
+\end{center}	
+
+% Вставить пустую страницу
+\clearpage
+\thispagestyle{empty}
+\label{myLastPage}
+\null
+\clearpage

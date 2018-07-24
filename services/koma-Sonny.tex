@@ -1,0 +1,54 @@
+%--------------------------------------------------------------------------
+% Originalcode von: <http://www.komascript.de/fncychap-Sonny>
+% Copyright (c) Markus Kohm
+% Version: 2017-05-24
+% Changes:
+% - 2016-09-02 erste Version
+% - 2017-05-24 Anpassung von beforeskip an aktuelles KOMA-Script
+% Weitergabe und Verwendung gestattet, solange dieser Hinsweiskommentar
+% einschließlich Link und Copyrightinformation erhalten bleibt.
+
+% 1. Emulation von fncychap mit KOMA-Script-Mitteln:
+\newlength{\ChapterRuleWidth}\setlength{\ChapterRuleWidth}{.5pt}
+\newcommand*{\ChRuleWidth}[1]{\setlength{\ChapterRuleWidth}{\dimexpr #1}}%
+\newcommand*{\ChNameVar}{\setkomafont{chapterprefix}}%
+\newcommand*{\ChTitleVar}{\setkomafont{chapter}}%
+\newcommand*{\ChNumVar}{\setkomafont{chapternumber}}%
+\newcommand*{\ChapterNameCase}[1]{#1}
+\newcommand*{\ChNameUpperCase}{\let\ChapterNameCase\MakeUppercase}
+\newcommand*{\ChNameIs}{\renewcommand*\ChapterNameCase[1]{##1}}
+\newcommand*{\ChNameLowerCase}{\let\ChapterNameCase\MakeLowercase}
+\newcommand*{\ChapterTitleCase}[1]{#1}
+\newcommand*{\ChTitleUpperCase}{\let\ChapterTitleCase\MakeUppercase}
+\newcommand*{\ChTitleIs}{\renewcommand*\ChapterTitleCase[1]{##1}}
+\newcommand*{\ChTitleLowerCase}{\let\ChapterTitleCase\MakeLowercase}
+
+% 2. Einstellungen für den Stil Sonny:
+\KOMAoptions{chapterprefix}% Es ist ein Präfix-Stil
+%\ChNameUpperCase										% Привести слово "Глава" в верхний регистр
+\newkomafont{chapternumber}{\huge}	% Размер шрифта для номера главы
+\let\raggedchapter\raggedleft% Überschriften rechtsbündig
+\RedeclareSectionCommand[%
+  beforeskip=0\baselineskip,% Отступ от слов "Глава" или рамки
+  innerskip=25pt,% Отступ от префикса
+  afterskip=20pt,% Отступ от текста главы
+  font=\normalfont\sffamily\huge,% Шрифт названия главы
+  prefixfont=\normalfont\Large,% Шрифт строки префикса
+]{chapter}
+\renewcommand*{\chapterformat}{%
+  \mbox{\ChapterNameCase{\chapappifchapterprefix{\nobreakspace}}%
+    {\usekomafont{chapternumber}{%
+        \rule{0pt}{.8\baselineskip}\thechapter\IfUsePrefixLine{}{\enskip}}}%
+  }%
+}
+\renewcommand*{\chapterlineswithprefixformat}[3]{% Ebene, Nummer, Text
+  \IfArgIsEmpty{#2}{}{%
+    % Die Prefix-Zeile aus Argument 2 wird nur gesetzt, wenn sie vorhanden
+    % ist.
+    #2%
+  }%
+  \rule[5pt]{\linewidth}{\ChapterRuleWidth}\\*
+  \ChapterTitleCase{#3}\nobreak
+  \rule[-5pt]{\linewidth}{\ChapterRuleWidth}
+}
+% --------------------------------------------------------------------------

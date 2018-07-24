@@ -1,0 +1,71 @@
+﻿%--- Настройка scrbook
+
+%-- Сноски
+\deffootnote[														
+1.5em]																	% Отсутп самой сноски
+{0em}																		% Отступ вторых строк абзаца
+{1.5em}																	% Отступ следующего абзаца
+{\textsuperscript{\thefootnotemark}}
+
+
+%-- Подписи к рисункам, таблицам...
+\setkomafont{captionlabel}{\small\bfseries}		% Шрифт для слов Рис., Табл. и т.д.
+\renewcommand*{\captionformat}{~}				% Разделитель между подписью типа объекта и его названием (например, здесь разделителем является «-» : Рис. 1.- Пример рисунка)
+\setcapindent{0em}											% Отступы второй и следующей строки в подписях
+					
+%-- Настроить колонтитлы
+\usepackage[
+headsepline															% Добавляет разделительную линию между верхним колонтитлом и текстом
+%,footsepline														% Добавляет разделительную линию между нижним колонтитлом и текстом
+]{scrlayer-scrpage}
+\clearpairofpagestyles									% Очистить колонтитлы
+\ohead{\pagemark}												% Добавить с края страницы её номер
+\chead{\headmark}												% Добавить название главы и название секции в верхний колонтитул
+
+\input{services/koma-Sonny}							% Загловки глав fncychap-Sonny средствами Komma Script.
+
+
+%-- Макет страницы
+\KOMAoptions{DIV=calc 									% Расчёт полезной площади с учетом применяемых шрифтов и др.
+,headinclude=true 											% Исключить верхний колонтитул из полей
+%,footinclude=true											% Исключить нижний колонтитул из полей
+}
+\recalctypearea													% Запуск пересчета
+
+
+%-- Оглавление
+\KOMAoptions{toc=chapterentrydotfill}		% Добавить заполнитель точками между главой страницей
+
+%- Добавить слово Глава в оглавление итог
+\let\originaladdchaptertocentry\addchaptertocentry
+\renewcommand*{\addchaptertocentry}[2]{%
+  \IfArgIsEmpty{#1}{% Глава без номера
+    \originaladdchaptertocentry{#1}{#2}%
+  }{% Глава с номером
+    \originaladdchaptertocentry{}{\chapapp~#1. #2}%
+  }%
+}
+
+%- Добавить слово Глава в оглавление 1 способ
+% Решение отклонено, т.к. метод не учитывает главы без нумерации
+%\makeatletter
+%\let\oldaddchaptertocentry\addchaptertocentry
+%\renewcommand{\addchaptertocentry}[2]{%
+%\oldaddchaptertocentry{}{\@chapapp{} #1. #2}}
+%\makeatother
+
+%- Добавить слово Глава в оглавление 2 способ
+% Решение отклонено, т.к. подпись главы идет на таком же отступе как и у приложения
+%\RedeclareSectionCommands[tocdynnumwidth]{chapter}	% Автоматически вычислять ширину столбца под номер главы (с учетом слов Глава и Приложение)
+%%\RedeclareSectionCommand[tocnumwidth=7em]{chapter}	% Размер ширины столбца под номер главы
+
+%\let\originaladdchaptertocentry\addchaptertocentry
+%\renewcommand*{\addchaptertocentry}[2]{%
+%  \IfArgIsEmpty{#1}{% Глава без номера
+%    \originaladdchaptertocentry{#1}{#2}%
+%  }{% Глава с номером
+%    \originaladdchaptertocentry{\chapapp~#1}{#2}%
+%  }%
+%}
+
+
