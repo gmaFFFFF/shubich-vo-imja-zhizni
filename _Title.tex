@@ -1,4 +1,5 @@
-﻿% Пользовательские переменные
+﻿% Оформление по ГОСТ Р 7.0.4-2006
+% Пользовательские переменные
 \newcommand{\AuthorFam}{Шубич}
 \newcommand{\AuthorName}{Михаил Павлович}
 \newcommand{\AuthorIO}{М.\,П.}
@@ -20,7 +21,7 @@
 \newcommand{\AuthorAbbrA}{\AuthorIO~\AuthorFam}
 \newcommand{\AuthorAbbrB}{\AuthorFam~\AuthorIO}
 
-\newcommand{\BibInfo}{\Title~: \MakeLowercase{\Subject}~/ \AuthorAbbrA. ~— М.~:~\Publishers, \YearPub.~— \pageref{myEndRomanPage}, \pageref{myLastPage}~с.~: ил.~— ISBN~\ISBN.}
+\newcommand{\BibInfo}{\Title~: \MakeLowercase{\Subject}~/ \AuthorAbbrA. ~— М.~:~\Publishers, \YearPub.~— \pageref{myEndRomanPage}, \pageref{myLastPage}~с.~: ил.}
 
 % Настройки шрифтов
 \setkomafont{publishers}{\normalfont}
@@ -91,7 +92,12 @@
 	\noindent
 	\hspace{1em}\hphantom{\AuthorMark}
 	\begin{minipage}[t]{\linewidth-1em-\widthof{\AuthorMark}}
-		% Сведения о серии и т.д.
+		% Год основания серии (подсерии), сведения о лицах, принимающих участие в создании серии (подсерии).
+		% Если соавторов четыре и более, их имена помещают на обороте титульного листа. Перед именами соавторов на обороте титульного листа приводят слова «Авторы», «Авторский коллектив» и т.п.
+		% Сведения об утверждении издания в качестве учебного пособия, учебника или официального издания, сведения о переводчике, составителе, ответственном (научном) редакторе, иллюстраторе и прочих лицах, принимавших участие в создании издания.
+		% Сведения об издании, с которого сделан перевод, приводят путем воспроизведения на контртитуле или на обороте титульного листа сведений, помещенных на титульной странице оригинального издания.
+		% Сведения о том, что издание является перепечаткой, и сведения об издании, с которого осуществлена перепечатка.
+		
 		\small Разработка оформления обложки ??????
 	\end{minipage}
 	
@@ -104,7 +110,8 @@
 	\noindent
 	\AuthorMark\hspace{1em}
 	\begin{minipage}[t]{\linewidth-1em-\widthof{\AuthorMark}}
-		{\hspace{1.5em}\BibInfo}	
+		{\hspace{1.5em}\BibInfo\\[1ex]}
+		{\hspace{1.5em}ISBN \ISBN}
 	\end{minipage}
 	
 	\vfill
@@ -112,9 +119,9 @@
 	\hspace{1em}\hphantom{\AuthorMark}
 	\begin{minipage}[t]{\linewidth-1em-\widthof{\AuthorMark}}
 		% Издательская аннотация
-		\small	[Аннотация] \todo[Текст]{Надо придумать рекламную аннотацию}
-	\end{minipage}	
-	
+		\small	[Аннотация] \todo[Текст]{Надо придумать рекламную аннотацию}		
+	\end{minipage}
+		
 	\noindent	
 	\begin{flushright}
 		\bibInd{\UDK}{\BBK}{}	
