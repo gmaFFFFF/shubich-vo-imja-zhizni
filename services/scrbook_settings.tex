@@ -22,8 +22,18 @@ headsepline															% Добавляет разделительную ли
 \ohead{\pagemark}												% Добавить с края страницы её номер
 \chead{\headmark}												% Добавить название главы и название секции в верхний колонтитул
 
+%-- Стиль заголовков
 \input{services/koma-Sonny}							% Загловки глав fncychap-Sonny средствами Komma Script.
 
+%-- Стиль секций https://tex.stackexchange.com/questions/355955/change-a-section-or-paragraph-style-in-scrbook
+%\makeatletter
+%\renewcommand\sectionlinesformat[4]{%
+%  \ifstr{#1}{section}
+%    {\centering #3\\*#4}
+%    {\@hangfrom{\hskip #2#3}{#4}}%
+%}
+%\makeatother
+%\renewcommand\sectionformat{--~\thesection~--}
 
 %-- Макет страницы
 \KOMAoptions{DIV=calc 									% Расчёт полезной площади с учетом применяемых шрифтов и др.
@@ -31,7 +41,6 @@ headsepline															% Добавляет разделительную ли
 %,footinclude=true											% Исключить нижний колонтитул из полей
 }
 \recalctypearea													% Запуск пересчета
-
 
 %-- Оглавление
 \KOMAoptions{toc=chapterentrydotfill}		% Добавить заполнитель точками между главой страницей
