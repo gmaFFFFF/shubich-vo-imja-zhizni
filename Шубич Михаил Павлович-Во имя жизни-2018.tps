@@ -12,12 +12,12 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1653
-NormalPos.bottom=477
+NormalPos.bottom=545
 Class=LaTeXView
 Document=4Chapter.tex
 
 [Frame0_View0,0]
-TopLine=223
+TopLine=214
 Cursor=34664
 
 [Frame1]
@@ -30,13 +30,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
 NormalPos.right=1653
-NormalPos.bottom=477
+NormalPos.bottom=545
 Class=LaTeXView
 Document=5Chapter.tex
 
 [Frame1_View0,0]
-TopLine=8
-Cursor=5044
+TopLine=142
+Cursor=29708
 
 [SessionInfo]
 FrameCount=2
