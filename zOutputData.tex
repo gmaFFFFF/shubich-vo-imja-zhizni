@@ -47,11 +47,26 @@
 \end{center}
 
 \vfil
-\noindent\begin{center}
-	\begin{pspicture}(-15pt,-5pt)(1.7in,.85in)
-		\psbarcode{\ISBNbar}{includetext width=1.5 height=.7 isbntextfont=PTMono addontextfont=PTMono textfont=PTMono}{isbn}
-	\end{pspicture}
-\end{center}	
+\noindent
+\begin{minipage}[b]{0.2\textwidth}		% Столбец для выравнивания бар-кода по центру страницы
+	\LARGE\textbf{\AgeLimit}
+\end{minipage}
+\hfil
+\begin{minipage}[b]{0.5\textwidth}
+		\begin{center}
+			\begin{pspicture}(-15pt,-5pt)(1.7in,.85in)
+				\psbarcode{\ISBNbar}{includetext width=1.5 height=.7 isbntextfont=PTMono addontextfont=PTMono textfont=PTMono}{isbn}
+			\end{pspicture}
+		\end{center}
+\end{minipage}
+\hfil
+\begin{minipage}[b]{0.2\textwidth}	
+	\begin{flushright}
+		\hspace*{\fill}		% \hspace*{\fill}	в отличии от \hfil не съедает пробелы в начале и конце строки
+	\end{flushright}
+\end{minipage}
+
+	
 
 % Вставить пустую страницу
 \clearpage
