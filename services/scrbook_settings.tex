@@ -36,11 +36,12 @@ headsepline															% Добавляет разделительную ли
 %\renewcommand\sectionformat{--~\thesection~--}
 
 %-- Макет страницы
-\KOMAoptions{DIV=current								% Расчёт полезной площади с учетом применяемых шрифтов и др.
-%,headinclude=true 											% Исключить верхний колонтитул из полей
+\KOMAoptions{DIV=current								% Перерасчёт макета с учетом измененных шрифтов
+,headinclude=true 											% Исключить верхний колонтитул из полей
 %,footinclude=true											% Исключить нижний колонтитул из полей
 }
-\recalctypearea													% Запуск пересчета
+\recalctypearea
+
 
 %-- Оглавление
 \KOMAoptions{toc=chapterentrydotfill}		% Добавить заполнитель точками между главой страницей
