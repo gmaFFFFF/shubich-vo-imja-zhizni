@@ -91,7 +91,7 @@
 	
 	\vfill
 	\noindent
-	\hspace{1em}\hphantom{\AuthorMark}
+	\hspace{1em}\hphantom{\AuthorMark}	% Вставляет пустой блок, нулевой высоты и толщины, но шириной как у аргумента. Есть ещё \vphantom и \phantom
 	\begin{minipage}[t]{\linewidth-1em-\widthof{\AuthorMark}}
 		% Год основания серии (подсерии), сведения о лицах, принимающих участие в создании серии (подсерии).
 		% Если соавторов четыре и более, их имена помещают на обороте титульного листа. Перед именами соавторов на обороте титульного листа приводят слова «Авторы», «Авторский коллектив» и т.п.
@@ -138,7 +138,7 @@
 	\noindent
 	\parbox[b]{.5\linewidth}{\small\bfseries ISBN \ISBN}
 	\hfill
-	\parbox[b]{.45\linewidth}
+	\parbox[b]{\widthof{\small©\,Иллюстрации. Права}}
 	{\raggedright\small
 	 ©\,\AuthorAbbrA, \YearPub\\
 	 ©\,Иллюстрации. Права принадлежат авторам	
