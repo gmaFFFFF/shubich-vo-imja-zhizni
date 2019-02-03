@@ -1,0 +1,23 @@
+﻿\Language{ru-RU}
+\Title{Во имя жизни}
+\Author{Михаил Павлович Шубич}
+\Keywords{Шубич\sep автобиография\sep ГУЗ\sep МИИЗ}
+\Publisher{«Перо»}
+\Subject{Автобиографическая повесть}	
+\Copyright{\copyright М.П. Шубич, 2019}
+\Contributor{Гришкин М.\,А.\sep Гришкина М.\,Л.\sep Кулебянов Д.\,А.}
+\CopyrightURL{http://creativecommons.org/licenses/by-sa/4.0/}
+\PublicationType{book}
+\Source{https://github.com/gmaFFFFF/shubich-vo-imja-zhizni}
+\URLlink{https://github.com/gmaFFFFF/shubich-vo-imja-zhizni}	
+\ISBN{978-5-11111-111}
+
+
+\pdfxSetCMYKcolorProfileDir{ico/}
+\gdef\ISOCoatedECI{\setCMYKcolorprofile{ISOcoated_v2_eci.icc}%
+ {FOGRA39}%  /OutputConditionIdentifier
+ {ISO Coated v2 \string\(ECI\string\)}%  /ProfileName
+% {Offset commercial and specialty printing according to ISO 12647-2:2004 / Amd 1, paper type 1 or 2 \(gloss or matte coated offset, 115 g/m2\), screen frequency 60/cm.}% /OutputCondition
+ {http://www.color.org}% /RegistryName
+}%
+\ISOCoatedECI
