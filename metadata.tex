@@ -1,15 +1,15 @@
-﻿\newcommand{\sep}{,}
+﻿\def\sep{; }
 
 % Метаданные для pdf
 \newcommand{\Author}{\AuthorName\ \AuthorFam}
 \newcommand{\Copyright}{\copyright\,\AuthorAbbrA, \YearPub}
 \newcommand{\Title}{Во имя жизни}
 \newcommand{\Language}{ru-RU}
-\newcommand{\Keywords}{Шубич\sep автобиография\sep ГУЗ\sep МИИЗ}
-\newcommand{\Publisher}{«Перо»}
+\newcommand{\Keywords}{\Author\sep автобиография\sep ГУЗ\sep МИИЗ}
+\newcommand{\Publisher}{Издательство «Перо»}
 \newcommand{\Subject}{Автобиографическая повесть}	
 \newcommand{\CopyrightURL}{http://creativecommons.org/licenses/by-sa/4.0/}
-\newcommand{\Contributor}{Гришкин М.\,А.\sep Гришкина М.\,Л.\sep Кулебянов Д.\,А.}
+\newcommand{\Contributor}{Гришкин М.А.\sep Гришкина М.Л.\sep Кулебянов Д.А.}
 \newcommand{\Date}{\today}
 \newcommand{\PublicationType}{book}	% 'book’, ‘catalog’, ‘feed’, ‘journal’, ‘magazine’, ‘manual’, ‘newsletter’, ‘pamphlet
 \newcommand{\Source}{https://github.com/gmaFFFFF/shubich-vo-imja-zhizni}
@@ -20,15 +20,33 @@
 \newcommand{\AuthorFam}{Шубич}
 \newcommand{\AuthorName}{Михаил Павлович}
 \newcommand{\AuthorIO}{М.\,П.}
-\newcommand{\YearPub}{\the\year}
 
-\newcommand{\CityPub}{Москва}
 \newcommand{\UDK}{82–94}
 \newcommand{\BBK}{84}
 \newcommand{\AuthorMark}{Ш 95}
 \newcommand{\AgeLimit}{16\,+}
 
+\newcommand{\CityPub}{Москва}
+\newcommand{\YearPub}{\the\year}
+
 \newcommand{\AuthorAbbrA}{\AuthorIO~\AuthorFam}
 \newcommand{\AuthorAbbrB}{\AuthorFam~\AuthorIO}
 
 
+
+% Метаданные  XMP. Используются в \jobname.xmpdata. 
+% Созданы так как название команд в файле \jobname.xmpdata совпадает с вышеуказанными «Метаданными для pdf»
+\def\myAuthor{\Author}
+\def\myCopyright{Авторское право\copyright\ \YearPub\ \Author}
+\def\myTitle{\Title}
+\def\myLanguage{\Language}
+\def\myKeywords{\Keywords}
+\def\myPublisher{\Publisher}
+\def\mySubject{\Subject}	
+\def\myCopyrightURL{\CopyrightURL}
+\def\myContributor{\Contributor}
+\def\myDate{\Date}
+\def\myPublicationType{\PublicationType}
+\def\mySource{\Source}
+\def\myURLlink{\URLlink}	
+\def\myISBN{\ISBN}

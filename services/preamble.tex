@@ -76,7 +76,7 @@ protrusion=true													% Висячая пунктуация
 
 \usepackage{wrapfig}										% Рисунки в тексте
 
-\usepackage{todo}												% Заметки ToDo
+\usepackage[nothing]{todo}							% Заметки ToDo
 
 \usepackage{caption}										% Настройка подписей плавающих объектов
 
@@ -110,12 +110,11 @@ protrusion=true													% Висячая пунктуация
 
 \input{metadata}												% Метаданные документа
 
+%\usepackage[]{hyperref}								% Гиперсылки в тексте (Лучше добавлять самым последним)
 
-%--- Гиперсылки в тексте (Лучше добавлять самым последним)
-\usepackage[]{hyperref}
+\usepackage[x-1a												% Выпуск pdf по стандартам (a-1b, x-1a)
+, cyrxmp]{pdfx}									
 
-%--- Выпуск pdf по стандартам
-\usepackage[x-1a]{pdfx}
 
 %--- Настройки PDF
 \hypersetup{
@@ -126,6 +125,7 @@ pdftitle={{\Title} ({\AuthorAbbrB})}
 }
 
 \hypersetup{pdfencoding=unicode
+,final
 ,pdfdisplaydoctitle={true}							% Отображать в заголовке окна AdobeReader название документа, а не имя файла
 ,pdflang={ru-RU}												% Язык документа
 ,hidelinks															% Скрывает выделение ссылок
@@ -134,7 +134,6 @@ pdftitle={{\Title} ({\AuthorAbbrB})}
 ,bookmarksnumbered={true}								% Добавить префикс «Глава №»
 ,pdfpagelabels=true
 }
-
 
 
 %--- Пользовательские переносы

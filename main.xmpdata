@@ -1,16 +1,17 @@
-﻿\Language{ru-RU}
-\Title{Во имя жизни}
-\Author{Михаил Павлович Шубич}
-\Keywords{Шубич\sep автобиография\sep ГУЗ\sep МИИЗ}
-\Publisher{«Перо»}
-\Subject{Автобиографическая повесть}	
-\Copyright{\copyright М.П. Шубич, 2019}
-\Contributor{Гришкин М.\,А.\sep Гришкина М.\,Л.\sep Кулебянов Д.\,А.}
-\CopyrightURL{http://creativecommons.org/licenses/by-sa/4.0/}
-\PublicationType{book}
-\Source{https://github.com/gmaFFFFF/shubich-vo-imja-zhizni}
-\URLlink{https://github.com/gmaFFFFF/shubich-vo-imja-zhizni}	
-\ISBN{978-5-11111-111}
+﻿\Language{\myLanguage}
+\Title[ru-RU]{\myTitle}
+\Author[ru-RU]{\myAuthor}
+\Keywords[ru-RU]{\myKeywords}
+\Publisher[ru-RU]{\myPublisher}
+\Subject[ru-RU]{\mySubject}	
+\Copyright[ru-RU]{\myCopyright}
+\Contributor[ru-RU]{\myContributor}
+\CopyrightURL{\myCopyrightURL}
+\PublicationType{\myPublicationType}
+\Source{\mySource}
+\URLlink{\myURLlink}	
+\ISBN{\myISBN}
+\CreatorTool{LaTeX with pdfx}
 
 
 \pdfxSetCMYKcolorProfileDir{ico/}
