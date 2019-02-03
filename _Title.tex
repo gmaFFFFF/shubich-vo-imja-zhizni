@@ -1,28 +1,7 @@
 ﻿% Оформление по ГОСТ Р 7.0.4-2006
-% Пользовательские переменные
-\newcommand{\AuthorFam}{Шубич}
-\newcommand{\AuthorName}{Михаил Павлович}
-\newcommand{\AuthorIO}{М.\,П.}
-\newcommand{\Title}{Во имя жизни}
-\newcommand{\Subject}{Автобиографическая повесть}	
-\newcommand{\YearPub}{2018}
-\newcommand{\CityPub}{Москва}
-\newcommand{\Publishers}{Самиздат\todo[Орг]{Надо исправить издательство}}
-\newcommand{\UDK}{82\==94}
-\newcommand{\BBK}{84}
-\newcommand{\AuthorMark}{Ш 95}
-\newcommand{\AgeLimit}{16\,+}
-\newcommand{\ISBN}{978\==5\==11111\==111\==1}
+\newcommand{\BibInfo}{\Title~: \MakeLowercase{\Subject}~/ \AuthorAbbrA. ~— М.~:~\Publisher, \YearPub.~— \pageref{myEndRomanPage}, \pageref{myLastPage}~с.~: ил.}
 
-%!!!! Не забудь временно включить пакет auto-pst-pdf чтобы воссоздать штрих-код
-\newcommand{\ISBNbar}{978-5-11111-111}	% ISBN для создания штрих кода. Последнее число можно не вводить. Оно будет вычислено автоматически. Причина вывода в отдельную переменную - команда для построения штрих кода требует использовать в качестве разделителя дефис '-', а не короткое тире '–' или '\=='
-
-
-\newcommand{\Author}{\AuthorName\ \AuthorFam}
-\newcommand{\AuthorAbbrA}{\AuthorIO~\AuthorFam}
-\newcommand{\AuthorAbbrB}{\AuthorFam~\AuthorIO}
-
-\newcommand{\BibInfo}{\Title~: \MakeLowercase{\Subject}~/ \AuthorAbbrA. ~— М.~:~\Publishers, \YearPub.~— \pageref{myEndRomanPage}, \pageref{myLastPage}~с.~: ил.}
+\newcommand{\ISBNShortDash}{\StrSubstitute{\ISBN}{-}{–}}
 
 % Настройки шрифтов
 \setkomafont{publishers}{\normalfont}
@@ -52,7 +31,7 @@
 %\subtitle{Подзаголовок}								% Подзагаловок
 \author{\Author}												% Автор1  \and Автор2  \and Автор 3...
 \date{\YearPub}													% Дата издания
-\publishers{\CityPub\\\Publishers}			% Издательство
+\publishers{\CityPub\\\Publisher}			% Издательство
 %\thanks																% \thanks - создаст сноску, но должен использоваться в любом из вышеуказанных элементов
 
 % Оборот титульного листа
@@ -71,14 +50,12 @@
 	\begin{center}
 		\usekomafont{author}{\Author}
 		\null\vfill
-		\resizebox{\linewidth}{!}{\usekomafont{title}{\Huge\Title}}	% Масштабировать текст до ширины страницы
-		\vskip 1em
+		\resizebox{.9\linewidth}{!}{\usekomafont{title}{\Huge\Title}}	% Масштабировать текст до ширины страницы
+		\vskip 3ex
 		\usekomafont{subject}{\Subject}		
 		\vfill
-		\usekomafont{publishers}{\CityPub}
-		\vskip .5em
-		\usekomafont{publishers}{\Publishers}
-		\vskip .5em
+		\usekomafont{publishers}{\CityPub}\\
+		\usekomafont{publishers}{\Publisher}\\
 		\usekomafont{date}{\YearPub}
 	\end{center}
 	
@@ -112,7 +89,7 @@
 	\AuthorMark\hspace{1em}
 	\begin{minipage}[t]{\linewidth-1em-\widthof{\AuthorMark}}
 		{\hspace{1.5em}\BibInfo\\[1ex]}
-		{\hspace{1.5em}ISBN \ISBN\\}
+		{\hspace{1.5em}ISBN \ISBNShortDash\\}
 		{\hspace{1.5em}Знак информационной продукции \large\textbf{\AgeLimit}}
 	\end{minipage}
 	
@@ -136,11 +113,11 @@
 	% ISBN и авторские права
 	\vfill
 	\noindent
-	\parbox[b]{.5\linewidth}{\small\bfseries ISBN \ISBN}
+	\parbox[b]{.5\linewidth}{\small\bfseries ISBN \ISBNShortDash}
 	\hfill
 	\parbox[b]{\widthof{\small©\,Иллюстрации. Права}}
 	{\raggedright\small
-	 ©\,\AuthorAbbrA, \YearPub\\
+	 \Copyright\\
 	 ©\,Иллюстрации. Права принадлежат авторам	
 	}
 	

@@ -32,7 +32,6 @@
 \setlength{\belowcaptionskip}{-.8\baselineskip}	% Уменьшаем отступ после caption
 
 
-
 %--- Типографика
 \usepackage[
 protrusion=true													% Висячая пунктуация
@@ -78,8 +77,6 @@ protrusion=true													% Висячая пунктуация
 
 \usepackage{caption}										% Настройка подписей плавающих объектов
 
-\usepackage{calc}												% Арифметические операции с длинами
-
 \usepackage{pbox}												% Расширенные операции с parabox
 
 \usepackage{setspace}										% Межстрочный интервал \onehalfspacing % полуторный интервал для всего текста
@@ -91,28 +88,48 @@ protrusion=true													% Висячая пунктуация
 
 \usepackage{dramatist}									% Диалоги для интервью
 
+\usepackage{verse}											% Стихи
+\renewcommand{\poemtoc}{subsection}			% Уровень на котором стихотворение будет отражено в оглавлении
+\renewcommand{\poemtitlefont}{\normalfont\itshape\large\centering}	% Шрифт для названия стихотворения
+\newcommand{\attrib}[1]{\nopagebreak{\raggedleft\footnotesize\itshape #1\par}}	% Добавить в стихотворение информацию об авторе
+
+
+%--- Утилиты
 \usepackage{pst-barcode}								% Генерация штрих-кода
 
 \usepackage[crop=off
 ,off																		% После завершени компиляци штрих кода c помощью опции off необходимо отключить этот пакет
 ]{auto-pst-pdf}													%	Поддержка postScript в PDF + надо добавить опцию компилятора pdflatex --shell-escape
 
-%--- Стихи
-\usepackage{verse}											
-\renewcommand{\poemtoc}{subsection}			% Уровень на котором стихотворение будет отражено в оглавлении
-\renewcommand{\poemtitlefont}{\normalfont\itshape\large\centering}	% Шрифт для названия стихотворения
-\newcommand{\attrib}[1]{\nopagebreak{\raggedleft\footnotesize\itshape #1\par}}	% Добавить в стихотворение информацию об авторе
+\usepackage{xstring}										% Манипуляции со строками
+
+\usepackage{calc}												% Арифметические операции с длинами
+
+\input{metadata}												% Метаданные документа
+
 
 %--- Гиперсылки в тексте (Лучше добавлять самым последним)
-\usepackage[unicode
+\usepackage[]{hyperref}
+
+
+%--- Настройки PDF
+\hypersetup{
+pdftitle={{\Title} ({\AuthorAbbrB})}
+,pdfauthor={\Author}
+,pdfsubject={\Subject}
+,pdfkeywords={\Keywords}
+}
+
+\hypersetup{pdfencoding=unicode
 ,pdfdisplaydoctitle={true}							% Отображать в заголовке окна AdobeReader название документа, а не имя файла
 ,pdflang={ru-RU}												% Язык документа
 ,hidelinks															% Скрывает выделение ссылок
 ,hypertexnames={true}										% Если false, то hyperref будет вместо счётчиков LaTeX использовать свои и ссылки в предметном указателе будут работать неверно.
 ,plainpages={false}											% Если true, то счётчик страниц будет в формате arabic и не будет учитывать римскую нумерацию страниц, но hypertexnames должно быть равно true
 ,bookmarksnumbered={true}								% Добавить префикс «Глава №»
-,pdfpagelabels
-]{hyperref}
+,pdfpagelabels=true
+}
+
 
 
 %--- Пользовательские переносы
@@ -120,3 +137,4 @@ protrusion=true													% Висячая пунктуация
 
 %--- Пользовательские команды
 \input{services/user_cmd}
+
