@@ -1,7 +1,29 @@
 ﻿%--- Пользовательские команды
-% Команда замены. Пример \replace{Text should be replaced here, here and here}{here}{Latex}
+
+% Команда замены. 
+% Пример: \replace{Text should be replaced here, here and here}{here}{Latex}
 % Источник: https://tex.stackexchange.com/questions/213947/how-to-replace-text
-\def\replace#1#2#3{%
- \def\tmp##1#2{##1#3\tmp}%
-   \tmp#1\stopreplace#2\stopreplace}
-\def\stopreplace#1\stopreplace{}
+%\def\replace#1#2#3{%
+% \def\tmp##1#2{##1#3\tmp}%
+%   \tmp#1\stopreplace#2\stopreplace}
+%\def\stopreplace#1\stopreplace{}
+
+% Команда замены
+% Пример: \replace{Text should be replaced here, here and here}{here}{\LaTeX{}}
+% Источник: https://tex.stackexchange.com/questions/213947/how-to-replace-text
+%\usepackage{xparse}
+%\ExplSyntaxOn
+%\NewDocumentCommand{\replace}{mmm}
+% {
+%  \marian_replace:nnn {#1} {#2} {#3}
+% }
+%
+%\tl_new:N \l_marian_input_text_tl
+%
+%\cs_new_protected:Npn \marian_replace:nnn #1 #2 #3
+% {
+%  \tl_set:Nn \l_marian_input_text_tl { #1 }
+%  \tl_replace_all:Nnn \l_marian_input_text_tl { #2 } { #3 }
+%  \tl_use:N \l_marian_input_text_tl
+% }
+%\ExplSyntaxOff
