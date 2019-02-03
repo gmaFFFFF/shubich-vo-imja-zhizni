@@ -1,17 +1,17 @@
 ﻿\Language{\myLanguage}
-\Title[ru-RU]{\myTitle}
-\Author[ru-RU]{\myAuthor}
-\Keywords[ru-RU]{\myKeywords}
-\Publisher[ru-RU]{\myPublisher}
-\Subject[ru-RU]{\mySubject}	
-\Copyright[ru-RU]{\myCopyright}
-\Contributor[ru-RU]{\myContributor}
+\Title{\myTitle}
+\Author{\myAuthor}
+\Keywords{\myKeywords}
+\Publisher{\myPublisher}
+\Subject{\mySubject}	
+\Copyright{\myCopyright}
+\Contributor{\myContributor}
 \CopyrightURL{\myCopyrightURL}
 \PublicationType{\myPublicationType}
-\Source{\mySource}
-\URLlink{\myURLlink}	
+\Source{\mySource}	
 \ISBN{\myISBN}
 \CreatorTool{LaTeX with pdfx}
+%\URLlink{\myURLlink}
 
 
 \pdfxSetCMYKcolorProfileDir{ico/}
