@@ -1,7 +1,4 @@
-﻿\pdfminorversion 3												% Задает текущую версию pdf 1.3 и разрешает вставку файлов версии не ниже 1.3. 
-																					% Нужна для pdf/x-1a, т.к. auto-pst-pdf устанавливает pdf 1.4, а публикация в pdf/x-1a требует 1.3
-
-\documentclass[paper=a5										% a4,a5,145mm:205mm
+﻿\documentclass[paper=a5										% a4,a5,145mm:205mm
 ,DIV=17																		% при calc DIV равна 14
 ,11pt																			% Размер шрифта
 ,twoside																	% Двусторонняя печать
@@ -21,6 +18,21 @@
 \usepackage[utf8]{inputenc}							% Кодировка исходников книги
 
 \usepackage[english,russian]{babel}			% Локализация и переносы
+
+
+%--- Настройка типа публикации
+\newif\ifPubTypeEBook
+%\PubTypeEBooktrue												% Задает логической переменной «Публикуется ли электронная книга» значение true
+
+\ifPubTypeEBook
+	\message{E-book creation mode}
+	\providecommand{\pdfxopt}{a-1a, cyrxmp}
+\else
+	\message{Publishing mode for typography}
+	\pdfminorversion 3											% Задает текущую версию pdf 1.3 и разрешает вставку файлов версии не ниже 1.3. 
+																					% Нужна для pdf/x-1a, т.к. auto-pst-pdf устанавливает pdf 1.4, а публикация в pdf/x-1a требует 1.3
+	\providecommand{\pdfxopt}{x-1a, cyrxmp}
+\fi
 
 
 %--- Настройки оформления
@@ -110,10 +122,9 @@ protrusion=true													% Висячая пунктуация
 
 \input{metadata}												% Метаданные документа
 
-%\usepackage[]{hyperref}								% Гиперсылки в тексте (Лучше добавлять самым последним)
+\usepackage[]{hyperref}									% Гиперсылки в тексте (Лучше добавлять самым последним)
 
-\usepackage[x-1a												% Выпуск pdf по стандартам (a-1b, x-1a)
-, cyrxmp]{pdfx}									
+\usepackage[\pdfxopt]{pdfx}							% Выпуск pdf по стандартам (a-1b, x-1a)
 
 
 %--- Настройки PDF

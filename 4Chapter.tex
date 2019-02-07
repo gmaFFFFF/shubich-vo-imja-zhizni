@@ -35,8 +35,12 @@
 		\center{\includegraphics[width=.9\linewidth]{saburov}}
 	\end{minipage}	
 	\hfil	
-	\begin{minipage}[b]{0.32\linewidth}		
-		\center{\includegraphics[width=.9\linewidth]{linkov}}
+	\begin{minipage}[b]{0.32\linewidth}
+		\ifPubTypeEBook
+			\center{\includegraphics[width=.9\linewidth]{linkov}}
+		\else
+			\center{\includegraphics[width=.9\linewidth]{linkov_bw}}
+		\fi
 	\end{minipage}	
 	\hfil
 	\\[1ex]	
@@ -114,7 +118,11 @@
 
 \begin{wrapfigure}{O}{.4\textwidth}
 \centering
-\includegraphics[width=.35\textwidth]{BNTU}
+\ifPubTypeEBook
+	\includegraphics[width=.35\textwidth]{BNTU}
+\else
+	\includegraphics[width=.35\textwidth]{BNTU_bw}
+\fi
 \caption[Белорусский национальный технический университет (БНТУ). Главный корпус]{Белорусский национальный технический университет (БНТУ). Главный корпус\footnotemark}
 \label{fig:BNTU}
 \end{wrapfigure}
@@ -138,7 +146,11 @@
 
 \begin{wrapfigure}{O}{.4\textwidth}
 \centering
-\includegraphics[width=.35\textwidth]{GAZM20Pobeda(Gwafton)}
+\ifPubTypeEBook
+	\includegraphics[width=.35\textwidth]{GAZM20Pobeda(Gwafton)_select}
+\else
+	\includegraphics[width=.35\textwidth]{GAZM20Pobeda(Gwafton)_select_bw}
+\fi
 \caption[ГАЗ-М\=/20 «Победа»]{ГАЗ-М\=/20 «Победа»\footnotemark}
 \label{fig:GAZM20Pobeda(Gwafton)}
 \end{wrapfigure}
