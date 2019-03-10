@@ -10,16 +10,6 @@
 {scrbook}
 
 
-%--- Руссификация
-\input glyphtounicode.tex 							% Копирование символов в pdf (должен стоять до fontenc)
-\pdfgentounicode=1											% ----//----
-
-\usepackage[T2A]{fontenc}								% Внутренняя кодировка
-\usepackage[utf8]{inputenc}							% Кодировка исходников книги
-
-\usepackage[english,russian]{babel}			% Локализация и переносы
-
-
 %--- Настройка типа публикации
 \newif\ifPubTypeEBook
 %\PubTypeEBooktrue												% Задает логической переменной «Публикуется ли электронная книга» значение true
@@ -33,6 +23,18 @@
 																					% Нужна для pdf/x-1a, т.к. auto-pst-pdf устанавливает pdf 1.4, а публикация в pdf/x-1a требует 1.3
 	\providecommand{\pdfxopt}{x-1a, cyrxmp}
 \fi
+
+
+\input{metadata}													% Метаданные документа
+
+%--- Руссификация
+\input glyphtounicode.tex 							% Копирование символов в pdf (должен стоять до fontenc)
+\pdfgentounicode=1											% ----//----
+
+\usepackage[T2A]{fontenc}								% Внутренняя кодировка
+\usepackage[utf8]{inputenc}							% Кодировка исходников книги
+
+\usepackage[english,russian]{babel}			% Локализация и переносы
 
 
 %--- Настройки оформления
@@ -120,14 +122,11 @@ protrusion=true													% Висячая пунктуация
 
 \usepackage{calc}												% Арифметические операции с длинами
 
-\input{metadata}												% Метаданные документа
-
-\usepackage[]{hyperref}									% Гиперсылки в тексте (Лучше добавлять самым последним)
+%\usepackage[]{hyperref}									% Гиперсылки в тексте (Лучше добавлять самым последним). Отключен, т.к. используется пакет pdfx
 
 \usepackage[\pdfxopt]{pdfx}							% Выпуск pdf по стандартам (a-1b, x-1a)
 
-
-%--- Настройки PDF
+%--- Настройки PDF hyperref
 \hypersetup{
 pdftitle={{\Title} ({\AuthorAbbrB})}
 ,pdfauthor={\Author}
@@ -143,9 +142,8 @@ pdftitle={{\Title} ({\AuthorAbbrB})}
 ,hypertexnames={true}										% Если false, то hyperref будет вместо счётчиков LaTeX использовать свои и ссылки в предметном указателе будут работать неверно.
 ,plainpages={false}											% Если true, то счётчик страниц будет в формате arabic и не будет учитывать римскую нумерацию страниц, но hypertexnames должно быть равно true
 ,bookmarksnumbered={true}								% Добавить префикс «Глава №»
-,pdfpagelabels=true
+%,pdfpagelabels=true
 }
-
 
 %--- Пользовательские переносы
 \input{services/hyphenation}
