@@ -160,7 +160,7 @@
 |services/spaces_desirable.tex|Желательно неразрывные пробелы|
 |services/user_cmd.tex|Пользовательские команды|
 |**Иные файлы**||
-|ico/ISOcoated_v2_eci.icc|Цветовой профиль ISO Coated v2 ([ECI](http://www.eci.org/en/downloads))|
+|icc/ISOcoated_v2_eci.icc|Цветовой профиль ISO Coated v2 ([ECI](http://www.eci.org/en/downloads))|
 
 ### Условные обозначения символов
 
