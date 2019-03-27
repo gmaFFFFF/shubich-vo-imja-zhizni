@@ -14,7 +14,7 @@
 %\URLlink{\myURLlink}
 
 
-\pdfxSetCMYKcolorProfileDir{ico/}
+\pdfxSetCMYKcolorProfileDir{icc/}
 \gdef\ISOCoatedECI{\setCMYKcolorprofile{ISOcoated_v2_eci.icc}%
  {FOGRA39}%  /OutputConditionIdentifier
  {ISO Coated v2 \string\(ECI\string\)}%  /ProfileName

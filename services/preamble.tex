@@ -1,14 +1,23 @@
-﻿\documentclass[paper=a5										% a4,a5,145mm:205mm
-,DIV=17																		% при calc DIV равна 14
-,11pt																			% Размер шрифта
-,twoside																	% Двусторонняя печать
-,BCOR=12mm																% Доп. отступ у корешка
-%,draft																		% Режим черновика, отображает ошибки
-,chapterprefix=true												% Добавляет слово Глава к подписи \chapter
-,appendixprefix=true											% Добавляет слово Приложение к подписи \chapter в разделе приложений
+﻿\documentclass[paper=a5									% a4,a5,145mm:205mm
+,DIV=17																	% при calc DIV равна 14
+,11pt																		% Размер шрифта
+,twoside																% Двусторонняя печать
+,BCOR=12mm															% Доп. отступ у корешка
+%,draft																	% Режим черновика, отображает ошибки
+,chapterprefix=true											% Добавляет слово Глава к подписи \chapter
+,appendixprefix=true										% Добавляет слово Приложение к подписи \chapter в разделе приложений
 ]
 {scrbook}
 
+
+%--- Настройки сжатия PDF
+\pdfcompresslevel=9											% Уровень сжатия потоковых объектов (текст, встроенная графика, рисунки png). 
+																				% 0-без компрессии, 9 - максимум. 0-используется для отладки
+\pdfobjcompresslevel=2									% Уровень сжатия не потоковых объектов. Включение сжатия требует \pdfminorversion>4. 
+																				% 0-без сжатия, 1-сжимаются все непотоквые объекты кроме объектов из встроенных файлов PDF и 
+																				% словарь \pdfinfo (Title,Author,Subject,Keywords,Producer...)
+																				% 2-не сжимает словарь (рекомендуется) /Info 3-сжато все (не рекомендуется)
+\pdfdecimaldigits=2											% Точность записи координат в файл 0..4. Влияет на размер файла
 
 %--- Настройка типа публикации
 \newif\ifPubTypeEBook
@@ -16,16 +25,21 @@
 
 \ifPubTypeEBook
 	\message{E-book creation mode}
-	\providecommand{\pdfxopt}{a-1a, cyrxmp}
+	\providecommand{\pdfxopt}{a-2u, cyrxmp}	% (ua-1, a-2u, a-1b, ...)
 \else
 	\message{Publishing mode for typography}
-	\pdfminorversion 3											% Задает текущую версию pdf 1.3 и разрешает вставку файлов версии не ниже 1.3. 
-																					% Нужна для pdf/x-1a, т.к. auto-pst-pdf устанавливает pdf 1.4, а публикация в pdf/x-1a требует 1.3
+	\pdfminorversion 3										% Задает текущую версию pdf 1.3 и разрешает вставку файлов версии не ниже 1.3. 
+																				% Нужна для pdf/x-1a, т.к. auto-pst-pdf устанавливает pdf 1.4, а публикация в pdf/x-1a требует 1.3
+	\pdfobjcompresslevel=0
 	\providecommand{\pdfxopt}{x-1a, cyrxmp}
 \fi
 
 
-\input{metadata}													% Метаданные документа
+\input{metadata}												% Метаданные документа
+										
+
+\usepackage{verse}											% Из-за недоработок пакета приходится размещать его перед hyperref и следовательно pdfx
+\usepackage[\pdfxopt]{pdfx}							% Выпуск pdf по стандартам (x-1a, ua-1, a-2u, a-1b)
 
 %--- Руссификация
 \input glyphtounicode.tex 							% Копирование символов в pdf (должен стоять до fontenc)
@@ -105,7 +119,7 @@ protrusion=true													% Висячая пунктуация
 
 \usepackage{dramatist}									% Диалоги для интервью
 
-\usepackage{verse}											% Стихи
+%\usepackage{verse}											% Стихи
 \renewcommand{\poemtoc}{subsection}			% Уровень на котором стихотворение будет отражено в оглавлении
 \renewcommand{\poemtitlefont}{\normalfont\itshape\large\centering}	% Шрифт для названия стихотворения
 \newcommand{\attrib}[1]{\nopagebreak{\raggedleft\footnotesize\itshape #1\par}}	% Добавить в стихотворение информацию об авторе
@@ -123,8 +137,6 @@ protrusion=true													% Висячая пунктуация
 \usepackage{calc}												% Арифметические операции с длинами
 
 %\usepackage[]{hyperref}									% Гиперсылки в тексте (Лучше добавлять самым последним). Отключен, т.к. используется пакет pdfx
-
-\usepackage[\pdfxopt]{pdfx}							% Выпуск pdf по стандартам (a-1b, x-1a)
 
 %--- Настройки PDF hyperref
 \hypersetup{
