@@ -21,11 +21,11 @@
 
 %--- Настройка типа публикации
 \newif\ifPubTypeEBook
-%\PubTypeEBooktrue												% Задает логической переменной «Публикуется ли электронная книга» значение true
+\PubTypeEBooktrue												% Задает логической переменной «Публикуется ли электронная книга» значение true
 
 \ifPubTypeEBook
 	\message{E-book creation mode}
-	\providecommand{\pdfxopt}{a-2u, cyrxmp}	% (ua-1, a-2u, a-1b, ...)
+	\providecommand{\pdfxopt}{a-2u, cyrxmp}	% (ua-1, a-2u, a-1b, ...) %ua-1 - LaTeX не умеет создавать, a-2u - поддерживает unicode, a-1b - максимальная совместимость
 \else
 	\message{Publishing mode for typography}
 	\pdfminorversion 3										% Задает текущую версию pdf 1.3 и разрешает вставку файлов версии не ниже 1.3. 
